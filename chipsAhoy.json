@@ -1,0 +1,14 @@
+{
+  "id": "chipsAhoy",
+  "name": "Chips Ahoy!",
+  "display_name": "Chips Ahoy",
+  "author": ["Eventlesstew"],
+  "description": "A small modpack that adds Chip variations of certain Jokers",
+  "prefix": "chipsahoy",
+  "main_file": "chipsAhoy.lua",
+  "priority": 0,
+  "badge_colour": "009cfd",
+  "badge_text_colour": "",
+  "version": "1.0.0",
+  "dependencies": ["Steamodded (>=1.0.0~BETA-0614a)"]
+}
