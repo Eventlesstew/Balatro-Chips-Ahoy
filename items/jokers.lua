@@ -284,9 +284,52 @@ SMODS.Joker {
     end
 }
 
+SMODS.Joker {
+    key = "whiteboard",
+    atlas = 'chipJoker',
+    blueprint_compat = true,
+    rarity = 2,
+    cost = 6,
+    pos = { x = 3, y = 2 },
+    config = { extra = {chips = 250, suit1 = 'Hearts', suit2 = 'Diamonds'} },
+    blueprint_compat=true,
+    eternal_compat=true,
+    perishable_compat=true,
+    unlocked = true,
+    discovered = true,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            local all_white_suits = true
+            for _, playing_card in ipairs(G.hand.cards) do
+                if not playing_card:is_suit(card.ability.extra.suit1, nil, true) and not playing_card:is_suit(card.ability.extra.suit2, nil, true) then
+                    all_white_suits = false
+                    break
+                end
+            end
+            if all_white_suits then
+                return {
+                    chips = card.ability.extra.chips
+                }
+            end
+        end
+    end,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { 
+            localize(card.ability.extra.suit1, 'suits_plural'), 
+            localize(card.ability.extra.suit2, 'suits_plural'), 
+            card.ability.extra.chips, 
+            colours = {
+                G.C.SUITS[card.ability.extra.suit1],
+                G.C.SUITS[card.ability.extra.suit2]
+            }
+        }}
+    end,
+}
 --[[ IDEAS
 - Chip versions of Gros Michel and Cavendish
 - Whiteboard: +250 Chips if all cards held in hand are Hearts or Diamonds
+- Jeffrey: Legendary Joker based on Jeffrey Hudson, a short fool 
+- Archibald: Legendary Joker based on Archibald Armstrong,
 
 
 ]]

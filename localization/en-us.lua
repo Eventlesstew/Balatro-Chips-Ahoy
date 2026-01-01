@@ -81,6 +81,16 @@ return {
                     }
                 },
             },
+            j_chipsahoy_whiteboard = {
+                name = "Whiteboard",
+                text = {
+                    {
+                        "{C:chips}+#3#{} Chips if all",
+                        "cards held in hand",
+                        "are {V:1}#1#{} or {V:2}#2#{}",
+                    }
+                },
+            },
         },
     },
     misc = {
